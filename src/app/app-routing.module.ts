@@ -50,6 +50,8 @@ const routes: Routes = [
         .then(m => m.AuthModule),
   },
 
+  { path: 'auth', loadChildren: () => import('./features/auth/features/auth/auth.module').then(m => m.AuthModule) },
+
   // ============================
   // WILDCARD — 404 REDIRECT
   // ============================
