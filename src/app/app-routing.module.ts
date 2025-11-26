@@ -6,7 +6,7 @@ import { MainLayoutComponent } from './layouts/main-layout/main-layout.component
 import { AuthLayoutComponent } from './layouts/auth-layout/auth-layout.component';
 
 // Guards
-import { AuthGuard } from './core/guards/auth.guard';
+import { AuthGuard } from './features/auth/guards/auth.guard';
 
 const routes: Routes = [
 
@@ -50,7 +50,7 @@ const routes: Routes = [
         .then(m => m.AuthModule),
   },
 
-  { path: 'auth', loadChildren: () => import('./features/auth/features/auth/auth.module').then(m => m.AuthModule) },
+  { path: 'auth', loadChildren: () => import('src/app/features/auth/auth.module').then(m => m.AuthModule) },
 
   // ============================
   // WILDCARD — 404 REDIRECT
