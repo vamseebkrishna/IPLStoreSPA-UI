@@ -1,0 +1,54 @@
+<h2 class="page-title">Order Details</h2>
+
+<div *ngIf="isLoading" class="loading">
+  Loading order details...
+</div>
+
+<div *ngIf="!isLoading && errorMessage" class="error">
+  {{ errorMessage }}
+</div>
+
+<div *ngIf="!isLoading && order" class="order-container">
+
+  <div class="order-header">
+    <div>
+      <h3>Order #{{ order.id }}</h3>
+      <p class="date">{{ order.orderDate | date:'medium' }}</p>
+    </div>
+
+    <div class="total">
+      Total: ₹{{ getOrderTotal() }}
+    </div>
+  </div>
+
+  <table class="items-table">
+    <thead>
+      <tr>
+        <th>Product</th>
+        <th>Franchise</th>
+        <th>Type</th>
+        <th>Price</th>
+        <th>Qty</th>
+        <th>Total</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let item of order.items">
+        <td>{{ item.productName }}</td>
+        <td>{{ item.franchiseName }}</td>
+        <td>{{ item.type }}</td>
+        <td>₹{{ item.unitPrice }}</td>
+        <td>{{ item.quantity }}</td>
+        <td>₹{{ getLineTotal(item) }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="back-btn-container">
+    <button routerLink="/orders" class="back-btn">
+      ← Back to Order History
+    </button>
+  </div>
+
+</div>

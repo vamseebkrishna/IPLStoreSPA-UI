@@ -1,0 +1,69 @@
+.details-container {
+  display: flex;
+  gap: 2rem;
+  background: #fff;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+}
+
+.image-section img {
+  width: 350px;
+  height: 350px;
+  object-fit: contain;
+  border-radius: 10px;
+}
+
+.info-section {
+  flex: 1;
+
+  h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+  }
+
+  .franchise, .type {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 0.3rem;
+  }
+
+  .price {
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin: 1rem 0;
+  }
+}
+
+.add-btn {
+  background: #0077ff;
+  color: #fff;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-right: 1rem;
+
+  &:hover {
+    background: #005ecc;
+  }
+}
+
+.back-btn {
+  background: #ccc;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 6px;
+  cursor: pointer;
+
+  &:hover {
+    background: #b5b5b5;
+  }
+}
+
+.loading,
+.error {
+  font-size: 1.2rem;
+  padding: 2rem;
+}

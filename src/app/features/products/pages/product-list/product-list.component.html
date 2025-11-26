@@ -1,0 +1,26 @@
+<h2 class="page-title">IPL Products</h2>
+
+<div *ngIf="isLoading" class="loading">
+  Loading products...
+</div>
+
+<div class="product-grid" *ngIf="!isLoading">
+  <div *ngFor="let p of products" class="product-card">
+
+    <img
+      [src]="p.imageUrl || 'assets/no-image.png'"
+      alt="{{ p.name }}"
+      class="product-img"
+    />
+
+    <h3>{{ p.name }}</h3>
+    <p class="franchise">{{ p.franchiseName }}</p>
+    <p class="type">{{ p.type }}</p>
+
+    <div class="price">₹{{ p.price }}</div>
+
+    <button class="view-btn" [routerLink]="['/products', p.id]">
+      View Details
+    </button>
+  </div>
+</div>

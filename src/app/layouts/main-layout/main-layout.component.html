@@ -1,0 +1,26 @@
+<div class="layout-container">
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="nav-left">
+      <a routerLink="/" class="brand">IPLStore</a>
+    </div>
+
+    <div class="nav-right">
+      <a routerLink="/cart" class="nav-item">Cart</a>
+      <a routerLink="/orders" class="nav-item">Orders</a>
+      <a routerLink="/auth/login" class="nav-item">Login</a>
+    </div>
+  </nav>
+
+  <!-- MAIN CONTENT -->
+  <main class="content">
+    <router-outlet></router-outlet>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <p>© 2025 IPLStore. All rights reserved.</p>
+  </footer>
+
+</div>
