@@ -20,7 +20,10 @@ export class OrderHistoryComponent implements OnInit {
 
   ngOnInit(): void {
     const userId = this.authService.getUserId();
-
+    if (!userId) {
+    console.error("User not logged in");
+    return;
+    }
     this.orderService.getUserOrders(userId).subscribe({
       next: (data) => {
         this.orders = data;

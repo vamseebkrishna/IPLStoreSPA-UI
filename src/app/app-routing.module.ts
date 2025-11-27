@@ -34,7 +34,7 @@ const routes: Routes = [
         loadChildren: () =>
           import('./features/orders/orders.module')
             .then(m => m.OrdersModule),
-        canActivate: [AuthGuard]   // <-- protected
+        canActivate: [AuthGuard],  // <-- protected route
       }
     ],
   },
@@ -50,8 +50,6 @@ const routes: Routes = [
         .then(m => m.AuthModule),
   },
 
-  { path: 'auth', loadChildren: () => import('src/app/features/auth/auth.module').then(m => m.AuthModule) },
-
   // ============================
   // WILDCARD — 404 REDIRECT
   // ============================
@@ -59,7 +57,12 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, { scrollPositionRestoration: 'top' })],
+  imports: [
+    RouterModule.forRoot(routes, {
+      scrollPositionRestoration: 'top',
+      anchorScrolling: 'enabled'
+    })
+  ],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}

@@ -8,15 +8,23 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent {
 
-  email = '';
-  password = '';
+  email: string = '';
+  password: string = '';
+  errorMessage: string = '';
 
-  constructor(private auth: AuthService, private router: Router) {}
+  constructor(
+    private authService: AuthService,
+    private router: Router
+  ) {}
 
   onLogin() {
-    this.auth.login({ email: this.email, password: this.password })
-      .subscribe(() => {
-        this.router.navigate(['/']);
-      });
+    this.authService.login(this.email, this.password).subscribe({
+      next: (res) => {
+        this.router.navigate(['/products']); // redirect after login
+      },
+      error: (err) => {
+        this.errorMessage = 'Invalid email or password';
+      }
+    });
   }
 }

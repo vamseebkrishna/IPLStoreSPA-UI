@@ -10,17 +10,28 @@ export class RegisterComponent {
 
   email = '';
   password = '';
-  confirmPassword = '';
+  message = '';
+  error = '';
+  confirmPassword: string = '';
 
-  constructor(private auth: AuthService, private router: Router) {}
+
+  constructor(
+    private authService: AuthService,
+    private router: Router
+  ) {}
 
   onRegister() {
-    this.auth.register({
-      email: this.email,
-      password: this.password,
-      confirmPassword: this.confirmPassword
-    }).subscribe(() => {
-      this.router.navigate(['/auth/login']);
+    this.authService.register(this.email, this.password).subscribe({
+      next: () => {
+        this.message = 'Registration successful! Redirecting...';
+
+        setTimeout(() => {
+          this.router.navigate(['/login']);
+        }, 1500);
+      },
+      error: (err) => {
+        this.error = 'Registration failed';
+      }
     });
   }
 }

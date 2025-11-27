@@ -7,11 +7,11 @@
 <div class="product-grid" *ngIf="!isLoading">
   <div *ngFor="let p of products" class="product-card">
 
-    <img
+    <!-- <img
       [src]="p.imageUrl || 'assets/no-image.png'"
       alt="{{ p.name }}"
       class="product-img"
-    />
+    /> -->
 
     <h3>{{ p.name }}</h3>
     <p class="franchise">{{ p.franchiseName }}</p>

@@ -21,6 +21,13 @@ export class CartPageComponent implements OnInit {
   ngOnInit(): void {
     const userId = this.authService.getUserId();  
 
+      // FIX: Check for null userId
+    if (!userId) {
+    console.error("User not logged in. Cannot load cart.");
+    this.isLoading = false;
+    return;
+    }
+
     this.cartService.getCart(userId).subscribe({
       next: (data) => {
         this.cart = data;
@@ -43,6 +50,12 @@ export class CartPageComponent implements OnInit {
 
   clearCart() {
     const userId = this.authService.getUserId();
+
+    if (!userId) {
+      console.error("User not logged in. Cannot clear cart.");
+      return;
+    }
+
     this.cartService.clearCart(userId).subscribe(() => {
       if (this.cart) this.cart.items = [];
     });

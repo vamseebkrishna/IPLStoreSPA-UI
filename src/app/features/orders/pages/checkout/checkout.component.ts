@@ -36,6 +36,11 @@ export class CheckoutComponent implements OnInit {
   ngOnInit(): void {
     const userId = this.authService.getUserId();
 
+    if (!userId) {
+    console.error("User not logged in. Cannot clear cart.");
+    return;
+    }
+
     this.cartService.getCart(userId).subscribe({
       next: (data) => {
         this.cart = data;
@@ -70,6 +75,10 @@ export class CheckoutComponent implements OnInit {
     this.orderService.placeOrder(payload).subscribe({
       next: () => {
         this.orderPlaced = true;
+        if (!payload.userId) {
+        console.error("User not logged in");
+        return;
+      }
         this.cartService.clearCart(payload.userId).subscribe();
         setTimeout(() => this.router.navigate(['/orders']), 1500);
       }
