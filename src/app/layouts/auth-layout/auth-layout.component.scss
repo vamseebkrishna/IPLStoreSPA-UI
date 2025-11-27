@@ -1,0 +1,15 @@
+.auth-container {
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(120deg, #1e90ff, #6a5acd);
+}
+
+.auth-box {
+  width: 420px;
+  background: #fff;
+  padding: 2rem 2.5rem;
+  border-radius: 10px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+}

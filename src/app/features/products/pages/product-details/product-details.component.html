@@ -1,0 +1,35 @@
+<div *ngIf="isLoading" class="loading">
+  Loading product details...
+</div>
+
+<div *ngIf="!isLoading && product" class="details-container">
+
+  <div class="image-section">
+    <img 
+      [src]="product.imageUrl || 'assets/no-image.png'" 
+      alt="{{ product.name }}"
+    />
+  </div>
+
+  <div class="info-section">
+    <h2>{{ product.name }}</h2>
+
+    <p class="franchise">Franchise: {{ product.franchiseName }}</p>
+    <p class="type">Type: {{ product.type }}</p>
+
+    <p class="price">₹{{ product.price }}</p>
+
+    <button class="add-btn">
+      Add to Cart
+    </button>
+
+    <button class="back-btn" routerLink="/products">
+      Back to Products
+    </button>
+  </div>
+
+</div>
+
+<div *ngIf="!isLoading && errorMessage" class="error">
+  {{ errorMessage }}
+</div>

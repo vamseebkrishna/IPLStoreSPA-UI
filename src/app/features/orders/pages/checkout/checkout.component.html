@@ -1,0 +1,64 @@
+<h2 class="page-title">Checkout</h2>
+
+<div *ngIf="isLoading" class="loading">Loading checkout...</div>
+
+<div class="checkout-container" *ngIf="!isLoading && cart">
+
+  <!-- Left: Form -->
+  <div class="form-section">
+    <form [formGroup]="checkoutForm">
+
+      <div class="form-group">
+        <label>Full Name</label>
+        <input type="text" formControlName="fullName" />
+      </div>
+
+      <div class="form-group">
+        <label>Address</label>
+        <input type="text" formControlName="address" />
+      </div>
+
+      <div class="form-group">
+        <label>City</label>
+        <input type="text" formControlName="city" />
+      </div>
+
+      <div class="form-group">
+        <label>Postal Code</label>
+        <input type="text" formControlName="postalCode" />
+      </div>
+
+      <div class="form-group">
+        <label>Phone</label>
+        <input type="text" formControlName="phone" />
+      </div>
+
+      <button class="place-order-btn"
+              [disabled]="checkoutForm.invalid"
+              (click)="placeOrder()">
+        Place Order
+      </button>
+
+      <div *ngIf="orderPlaced" class="success-msg">
+        🎉 Order placed successfully!
+      </div>
+
+    </form>
+  </div>
+
+  <!-- Right: Summary -->
+  <div class="summary-section">
+    <h3>Order Summary</h3>
+
+    <div class="summary-item" *ngFor="let item of cart.items">
+      <span>{{ item.productName }} (x{{ item.quantity }})</span>
+      <strong>₹{{ getTotal(item) }}</strong>
+    </div>
+
+    <div class="summary-total">
+      <span>Total</span>
+      <strong>₹{{ getCartTotal() }}</strong>
+    </div>
+  </div>
+
+</div>

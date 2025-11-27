@@ -1,0 +1,19 @@
+<div class="auth-container">
+  <h2>Create Account</h2>
+
+  <form>
+
+    <input type="email" placeholder="Email" [(ngModel)]="email" name="email" />
+
+    <input type="password" placeholder="Password" [(ngModel)]="password" name="password" />
+
+    <input type="password" placeholder="Confirm Password" [(ngModel)]="confirmPassword" name="confirmPassword" />
+
+    <button (click)="onRegister()">Register</button>
+
+    <p>
+      Already have an account?
+      <a routerLink="/auth/login">Login</a>
+    </p>
+  </form>
+</div>

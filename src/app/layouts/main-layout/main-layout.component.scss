@@ -1,0 +1,43 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #003a75;
+  padding: 0.8rem 1.5rem;
+  color: #fff;
+
+  a {
+    color: #fff;
+    text-decoration: none;
+    margin-left: 1rem;
+    font-weight: 500;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  .brand {
+    font-size: 1.2rem;
+    font-weight: 700;
+  }
+
+  .welcome {
+    margin-left: 1rem;
+    font-style: italic;
+  }
+
+  .logout-btn {
+    margin-left: 1rem;
+    background: #ff5252;
+    border: none;
+    padding: 0.4rem 0.8rem;
+    border-radius: 4px;
+    cursor: pointer;
+    color: #fff;
+
+    &:hover {
+      background: #ff1744;
+    }
+  }
+}

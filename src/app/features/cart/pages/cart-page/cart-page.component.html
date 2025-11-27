@@ -1,0 +1,52 @@
+<h2 class="page-title">Your Cart</h2>
+
+<div *ngIf="isLoading" class="loading">
+  Loading cart...
+</div>
+
+<div *ngIf="!isLoading && cart && cart.items.length === 0" class="empty">
+  Your cart is empty.
+</div>
+
+<div *ngIf="!isLoading && cart && cart.items.length > 0" class="cart-container">
+
+  <table class="cart-table">
+    <thead>
+      <tr>
+        <th>Product</th>
+        <th>Franchise</th>
+        <th>Type</th>
+        <th>Price</th>
+        <th>Qty</th>
+        <th>Total</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let item of cart.items">
+        <td>{{ item.productName }}</td>
+        <td>{{ item.franchiseName }}</td>
+        <td>{{ item.type }}</td>
+        <td>₹{{ item.unitPrice }}</td>
+        <td>{{ item.quantity }}</td>
+        <td>₹{{ getTotal(item) }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="cart-summary">
+    <div class="summary-row">
+      <span>Total:</span>
+      <strong>₹{{ getCartTotal() }}</strong>
+    </div>
+
+    <button class="clear-btn" (click)="clearCart()">
+      Clear Cart
+    </button>
+
+    <button class="checkout-btn">
+      Checkout
+    </button>
+  </div>
+
+</div>

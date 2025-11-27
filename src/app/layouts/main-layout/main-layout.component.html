@@ -1,0 +1,48 @@
+<div class="layout-container">
+
+  <!-- NAVBAR -->
+<nav class="navbar">
+
+  <div class="nav-left">
+    <a routerLink="/" class="brand">IPL Store</a>
+  </div>
+
+  <div class="nav-right">
+
+    <!-- If NOT logged in -->
+    <ng-container *ngIf="!auth.isLoggedIn(); else loggedIn">
+
+      <a routerLink="/auth/login">Login</a>
+      <a routerLink="/auth/register">Register</a>
+
+    </ng-container>
+
+    <!-- If logged in -->
+    <ng-template #loggedIn>
+
+      <a routerLink="/products">Products</a>
+      <a routerLink="/cart">Cart</a>
+      <a routerLink="/orders">Order History</a>
+
+      <span class="welcome">
+        Hi, {{ auth.getUserId() }}
+      </span>
+
+      <button class="logout-btn" (click)="logout()">Logout</button>
+
+    </ng-template>
+
+  </div>
+</nav>
+
+  <!-- MAIN CONTENT -->
+  <main class="content">
+    <router-outlet></router-outlet>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <p>© 2025 IPLStore. All rights reserved.</p>
+  </footer>
+
+</div>

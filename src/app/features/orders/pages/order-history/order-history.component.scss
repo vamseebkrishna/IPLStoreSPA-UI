@@ -1,0 +1,75 @@
+.page-title {
+  font-size: 1.7rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+}
+
+.loading,
+.empty {
+  font-size: 1.2rem;
+  padding: 2rem;
+  color: #777;
+}
+
+.orders-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.order-card {
+  background: #fff;
+  border-radius: 10px;
+  padding: 1.2rem 1.4rem;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+}
+
+.order-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+
+  h3 {
+    margin: 0;
+  }
+
+  .date {
+    color: #666;
+    font-size: 0.9rem;
+  }
+
+  .total {
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+}
+
+.items-table {
+  width: 100%;
+  border-collapse: collapse;
+
+  th, td {
+    padding: 0.6rem;
+    border-bottom: 1px solid #eee;
+  }
+
+  th {
+    background: #f8f8f8;
+    font-weight: 600;
+  }
+}
+
+.details-link {
+  margin-top: 0.8rem;
+
+  a {
+    color: #0077ff;
+    text-decoration: none;
+    font-weight: 500;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
